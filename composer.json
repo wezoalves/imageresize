@@ -1,0 +1,20 @@
+{
+    "name": "wezoalves/imageresize",
+    "description": "real-time image manipulation and caching",
+    "type": "project",
+    "require": {
+        "kosinix/grafika": "2.0.8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ImgOnthefly\\": "lib/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Weslley Alves",
+            "email": "weslley@wezo.com.br"
+        }
+    ]
+}
