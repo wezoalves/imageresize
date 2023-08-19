@@ -29,7 +29,6 @@ if(!$file->getFile(1)){
 
   // on error, return placeholder
   if(!$saved){
-    header('HTTP/1.0 500 Internal Server Error', true, 500);
     header('Content-Type: image/gif');
     echo base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw==');
     exit();
