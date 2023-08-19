@@ -24,7 +24,7 @@ final class NameFile
     return "{$hash}-{$this->name}";
   }
 
-  public function getOtimized() : string
+  public function getOptimized() : string
   {
     $hash = hash('crc32', "{$this->width}{$this->height}{$this->crop}");
     return "{$hash}-{$this->name}";
@@ -37,14 +37,14 @@ final class NameFile
 
   /**
    * 1 FOR ORIGINAL
-   * 2 FOR OTIMIZED
+   * 2 FOR OPTIMIZED
    */
-  public function getFile(int $type)
+  public function getFile(int $type) : string|bool
   {
 
     $imagePath = dirname(__FILE__) . "/../src/image/{$this->getFolder()}/";
 
-    $fileCkeck = $type == 1 ? "{$imagePath}{$this->getOriginal()}" : "{$imagePath}{$this->getOtimized()}";
+    $fileCkeck = $type == 1 ? "{$imagePath}{$this->getOriginal()}" : "{$imagePath}{$this->getOptimized()}";
 
     if(!is_dir($imagePath)){
       mkdir($imagePath);

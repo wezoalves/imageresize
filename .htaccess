@@ -1,0 +1,28 @@
+# run app in src
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/src/
+RewriteRule ^(.*)$ /src/$1 [L]
+
+# execute script out .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+Options All -Indexes
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+  RewriteRule ^(.*) - [E=BASE:%1]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+php_flag log_errors on
+php_value error_log ../logs/errors.log
