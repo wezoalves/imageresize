@@ -42,7 +42,7 @@ if (!$file->getFile(2)) {
     // create a image optimized
     $editor = Grafika::createEditor();
     $editor->open($image, $file->getFile(1));
-    $editor->resizeFill($image, $width, $height, $crop);
+    $editor->resizeFill($image, $width, $height); // , $crop
     $editor->save($image, "image/{$file->getFolder()}/{$file->getOptimized()}");
 
   } catch (\Throwable $th) {
